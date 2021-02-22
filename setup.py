@@ -1,22 +1,23 @@
-# -*- coding: utf-8 -*-
-"""
-    Setup file for s3_log_query.
-    Use setup.cfg to configure your project.
+import setuptools
 
-    This file was generated with PyScaffold 3.3.1.
-    PyScaffold helps you to put up the scaffold of your new Python project.
-    Learn more under: https://pyscaffold.org/
-"""
-import sys
-from pkg_resources import VersionConflict, require
-from setuptools import setup
+with open("README.md", "r") as fh:
+    long_description = fh.read()
 
-try:
-    require("setuptools>=38.3")
-except VersionConflict:
-    print("Error: version of setuptools is too old (<38.3)!")
-    sys.exit(1)
-
-
-if __name__ == "__main__":
-    setup(use_pyscaffold=True)
+setuptools.setup(name='s3-log-query',
+                 version='v1.0.0',
+                 author='Mike Thoun',
+                 author_email='mikethoun@gmail.com',
+                 description='Query S3 Log Files',
+                 long_description=long_description,
+                 long_description_content_type="text/markdown",
+                 url='https://github.com/mikethoun/s3-log-query',
+                 license='Apache License 2.0',
+                 packages=setuptools.find_packages(),
+                 classifiers=['Programming Language :: Python :: 3',
+                              'License :: OSI Approved :: Apache Software License',
+                              ],
+                 install_requires=['boto3~=1.17.12',
+                                   'python-dateutil~=2.8.1',
+                                   'setuptools~=53.0.0',
+                                   'pandas~=1.2.2',
+                                   ])
